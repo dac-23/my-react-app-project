@@ -13,9 +13,18 @@ function EventDemo() {
   // let title = "Hello World";
   let [title, setTitle] = useState("Hello World");
 
+  // Member Funcn
+  let changeTitle = () => {
+    let newTitle = "Hi " + title;
+
+    // re-render; asking the REact, to perform DOM operation
+    setTitle(newTitle);
+  };
+
   return (
     <div>
       <h1>{title}</h1>
+      <input type="button" value="Change the Title" onClick={changeTitle} />
     </div>
   );
 }
