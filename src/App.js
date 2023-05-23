@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 function App() {
   return (
@@ -11,17 +11,19 @@ function App() {
 // MAP OPERATOR
 // <h1>Delhi</h1>
 function EventDemo() {
-  let inputRef = useRef();
-  let [list, setList] = useState(["todo1"]);
+  let [todo, setTodo] = useState("");
+  let [list, setList] = useState([]);
 
-  // Member Funcn
+  let inputHandler = (e) => {
+    console.log(e.target.value);
+    let newValue = e.target.value;
+    setTodo(newValue);
+  };
+
   let addNewItem = () => {
-    console.log(inputRef.current);
-
-    let newValue = inputRef.current.value;
-    setList([newValue, ...list]);
-
-    inputRef.current.value = "";
+    let newList = [todo, ...list];
+    setList(newList);
+    setTodo("");
   };
 
   // UI
@@ -29,10 +31,16 @@ function EventDemo() {
     <div>
       <h1>List Demo </h1>
 
-      <input type="text" placeholder="Enter Todo" ref={inputRef} />
-      <input type="button" value="Add new Item" onClick={addNewItem} />
+      <input
+        type="text"
+        placeholder="Enter Todo"
+        value={todo}
+        onChange={inputHandler}
+      />
+      <input type="button" value="Add New Item" onClick={addNewItem} />
 
       <hr />
+
       {list.map((item) => (
         <h1>{item}</h1>
       ))}
