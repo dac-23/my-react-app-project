@@ -35,7 +35,7 @@ function EventDemo() {
   // UI
   return (
     <div>
-      <h1>List Demo </h1>
+      <h1 className="bg-success text-white p-3">Todo App </h1>
 
       <input
         type="text"
