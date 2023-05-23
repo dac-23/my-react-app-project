@@ -11,23 +11,24 @@ function App() {
 // MAP OPERATOR
 // <h1>Delhi</h1>
 function EventDemo() {
-  let list = ["Delhi", "Calcutta", "Kochi", "Mumbai"];
+  let [list, setList] = useState(["delhi", "chennai"]);
+
+  // Member Funcn
+  let addNewItem = () => {
+    // let newList = [...list, "kochi"];
+    let newList = ["kochi", ...list];
+    setList(newList);
+  };
 
   return (
     <div>
       <h1>List Demo </h1>
+      <input type="button" value="Add new Item" onClick={addNewItem} />
 
-      {list.map((item) => (
-        <div className="alert alert-primary mb-1">{item}</div>
-      ))}
-
-      {/** ANY AS HEADLINE */}
+      <hr />
       {list.map((item) => (
         <h1>{item}</h1>
       ))}
-
-      {/** SIMPLE STING */}
-      {list.map((item) => item)}
     </div>
   );
 }
