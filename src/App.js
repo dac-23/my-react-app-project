@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function App() {
   return (
     <div>
@@ -8,22 +10,23 @@ function App() {
 
 function EventDemo() {
   // DATA MEMBER :: Stateless or Stateful
-  let background = "bg-primary";
+  // let background = "bg-primary";
+  let [background, setBackground] = useState("bg-primary");
 
   // MEMBER FUNCN
   let changeBackgroundPrimary = () => {
-    background = "bg-primary";
-    alert(background);
+    let newbackground = "bg-primary";
+    setBackground(newbackground);
   };
 
   let changeBackgroundSuccess = () => {
-    background = "bg-success";
-    alert(background);
+    let newbackground = "bg-success";
+    setBackground(newbackground);
   };
 
   let changeBackgroundDanger = () => {
-    background = "bg-danger";
-    alert(background);
+    let newbackground = "bg-danger";
+    setBackground(newbackground);
   };
 
   // UI
