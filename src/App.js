@@ -9,22 +9,23 @@ function App() {
 }
 
 function EventDemo() {
-  // delcaring and destructing the stateful variable
-  // let title = "Hello World";
-  let [title, setTitle] = useState("Hello World");
+  // let counter = 100;
+  let [counter, setCounter] = useState(100);
 
-  // Member Funcn
-  let changeTitle = () => {
-    let newTitle = "Hi " + title;
+  let likeMe = () => {
+    counter = counter + 1;
 
-    // re-render; asking the REact, to perform DOM operation
-    setTitle(newTitle);
+    // PERFORM DOM OPERATION
+    setCounter(counter);
   };
 
   return (
     <div>
-      <h1>{title}</h1>
-      <input type="button" value="Change the Title" onClick={changeTitle} />
+      <h1>Like</h1>
+
+      <h1>{counter}</h1>
+
+      <input type="button" value="Like Me" onClick={likeMe} />
     </div>
   );
 }
